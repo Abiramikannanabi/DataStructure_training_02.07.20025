@@ -70,3 +70,74 @@ public class Queue {
 		n.display();
 	}
 }
+
+
+//Linked list implementation
+
+package queue;
+class Node
+{
+	int data;
+	Node next;
+	
+	Node(int data)
+	{
+		this.data=data;
+	}
+}
+class MyQ
+{
+	Node r,f;
+	public void enqueue(int data)
+	{
+		Node a=new Node(data);
+		a.next=null;
+		
+		if(r==null)
+		{
+			r=a;
+			f=a;
+		}
+		else 
+		{
+			r.next=a;
+			r=a;
+		}
+	}
+	public void dequeue()
+	{
+		System.out.println("Deleted element :"+f.data);
+		Node tem=f;
+		f=f.next;
+		tem.next=null;
+		
+	}
+		public void display()
+		{
+			Node temp=f;
+			System.out.println("The queue elements are : ");
+			while(temp!=null)
+			{
+				System.out.println(temp.data);
+				temp=temp.next;
+			}
+		}
+}
+
+public class Queue {
+
+	public static void main(String[] args) {
+		MyQ m=new MyQ();
+		m.enqueue(10);
+		m.enqueue(20);
+		m.enqueue(30);
+		m.enqueue(40);
+		m.enqueue(50);
+		m.display();
+		m.dequeue();
+		m.display();
+		m.dequeue();
+		m.display();
+	}
+}
+
